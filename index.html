@@ -48,6 +48,7 @@
             height: auto;
             display: block;
             margin: 10px auto;
+            border-radius: 5px;
         }
         .button {
             display: block;
@@ -90,14 +91,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
             animation: popIn 0.5s ease-in-out;
         }
         .checkmark {
+            position: absolute;
             width: 40px;
-            height: 20px;
-            border-left: 5px solid white;
-            border-bottom: 5px solid white;
-            transform: rotate(-45deg);
+            height: 40px;
+            border-radius: 50%;
+            border: 5px solid white;
+            clip-path: polygon(14% 44%, 0 60%, 35% 100%, 100% 20%, 85% 0%, 35% 75%);
         }
         @keyframes popIn {
             0% { transform: scale(0); }
@@ -119,7 +122,7 @@
         <div class="header">Complete Your Payment</div>
         <div class="sub-header">Click the button below to proceed with payment.</div>
         <div class="order-summary">
-            <img src="https://m.media-amazon.com/images/I/71rJ8aAFEvL._AC_UL480_FMwebp_QL65_.jpg" alt="Product Image">
+            <img src="product.webp" alt="Product Image">
             <strong>Order Number:</strong> 407-9876543-1234567<br>
             <strong>Item:</strong> Xcluma Metal My1016Z2 24V 250W Electric Motor for E-Bike<br>
             <strong>Price:</strong> ₹3,499.00<br>
