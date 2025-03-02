@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.in - Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .amazon-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        .header {
+            font-size: 22px;
+            font-weight: bold;
+            color: #232f3e;
+        }
+        .sub-header {
+            color: #565959;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .order-summary {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .order-summary img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            background: #ff9900;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #e68900;
+        }
+        .footer {
+            font-size: 12px;
+            color: #565959;
+            margin-top: 20px;
+        }
+        .payment-success {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            justify-content: center;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: popIn 0.5s ease-in-out;
+        }
+        .checkmark {
+            width: 40px;
+            height: 20px;
+            border-left: 5px solid white;
+            border-bottom: 5px solid white;
+            transform: rotate(-45deg);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        .print-button {
+            display: none;
+            margin-top: 10px;
+            background: #007185;
+        }
+        .print-button:hover {
+            background: #005f68;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="orderContainer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="amazon-logo">
+        <div class="header">Complete Your Payment</div>
+        <div class="sub-header">Click the button below to proceed with payment.</div>
+        <div class="order-summary">
+            <img src="https://m.media-amazon.com/images/I/71rJ8aAFEvL._AC_UL480_FMwebp_QL65_.jpg" alt="Product Image">
+            <strong>Order Number:</strong> 407-9876543-1234567<br>
+            <strong>Item:</strong> Xcluma Metal My1016Z2 24V 250W Electric Motor for E-Bike<br>
+            <strong>Price:</strong> ₹3,499.00<br>
+            <strong>Payment Method:</strong> UPI (XXXXXX@paytm)<br>
+            <strong>Delivery Date:</strong> March 5, 2025<br>
+            <strong>Shipping Address:</strong> 123, ABC Street, Balasore, Odisha - 756001
+        </div>
+        <button class="button" onclick="confirmPayment()">Make Payment</button>
+    </div>
+    
+    <div class="payment-success" id="paymentSuccess">
+        <div class="circle">
+            <div class="checkmark"></div>
+        </div>
+        <h2>Payment Successful!</h2>
+        <p>Thank you for shopping with Amazon!</p>
+        <button class="button print-button" id="printButton" onclick="window.print()">Print Invoice</button>
+    </div>
+    
+    <script>
+        function confirmPayment() {
+            if (confirm("Are you sure you want to make the payment?")) {
+                document.getElementById("orderContainer").style.display = "none";
+                document.getElementById("paymentSuccess").style.display = "flex";
+                setTimeout(() => {
+                    document.getElementById("printButton").style.display = "block";
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
